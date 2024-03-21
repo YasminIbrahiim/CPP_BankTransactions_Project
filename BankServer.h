@@ -19,17 +19,17 @@ typedef enum
 class BankServer
 {
 private:
-	vector<User*>  VecPtrUserData; /* vector that contains pointers to each user class */
-	vector<User*>::iterator  UserData_Iterator;
+	std::vector<User*>  VecPtrUserData; /* vector that contains pointers to each user class */
+	std::vector<User*>::iterator  UserData_Iterator;
 	static BankServer* ptrBankServerObj;
 	BankServer() = default;
-	~BankServer() = default;
+	~BankServer();
 public: 	
 	BankServer(const BankServer& BankServerObj) = delete;
 	static BankServer*   GetBankServerInstance(void);
 	enuBankServerStatus  BankServer_AddUserAccount(void);
-	enuBankServerStatus  BankServer_DeleteUserAccount(uint64_t User_ID);
-	enuBankServerStatus  BankServer_FindUser(uint64_t User_ID, User* ptrUserData);
+	enuBankServerStatus  BankServer_DeleteUserAccount(uint64_t User_IDCpy);
+	enuBankServerStatus  BankServer_FindUser(uint64_t User_IDCpy, uint8_t* IndexCpy);
 };
 
 #endif

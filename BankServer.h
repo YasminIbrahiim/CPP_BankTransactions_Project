@@ -8,10 +8,10 @@
 
 typedef enum 
 {
-	E_OK,
-	ERROR_ADD_USER_FAILED,
-	ERROR_CARD_ACCTIVATION_FAILED,
-	ERROR_ID_NOT_VALID
+	BankServer_E_OK,
+	BankServer_ERROR_ADD_USER_FAILED,
+	BankServer_ERROR_CARD_ACCTIVATION_FAILED,
+	BankServer_ERROR_ID_NOT_VALID
 }enuBankServerStatus;
 
 /* This class is simulating the bank server */
@@ -27,9 +27,9 @@ private:
 public: 	
 	BankServer(const BankServer& BankServerObj) = delete;
 	static BankServer*   GetBankServerInstance(void);
-	enuBankServerStatus  BankServer_AddUserAccount(void);
+	enuBankServerStatus  BankServer_AddUserAccount(const std::string& UserName, uint64_t UserID, uint64_t Saved_Money);
 	enuBankServerStatus  BankServer_DeleteUserAccount(uint64_t User_IDCpy);
-	enuBankServerStatus  BankServer_FindUser(uint64_t User_IDCpy, uint8_t* IndexCpy);
+	enuBankServerStatus  BankServer_FindUser(uint64_t User_IDCpy, User*& UserPtr);
 };
 
 #endif

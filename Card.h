@@ -17,7 +17,12 @@ private:
 public: 
 	Card()  = default;
 	~Card() = default;
-	
+	Card(
+	const std::string& User_NameRef,
+	uint64_t    Card_IDCpy,
+	const struct tm&   Card_ExpirationDateRef,
+	const struct tm&   Card_AcctivationDateRef
+	);
 	void  Card_SetUserName(const std::string& User_NameCpy);
 	void  Card_SetUserID(uint64_t   Card_IDCpy);
 	void  Card_SetExpirationDate(const struct tm&  Card_ExpirationDateRef);

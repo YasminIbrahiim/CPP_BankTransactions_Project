@@ -17,12 +17,17 @@ typedef enum
 
 class Machine
 {
-
+private:
+	static Machine* ptrMachineObj;
 public:
-	enuMachineStatus Machine_CheckDataValidation(void);
-	enuMachineStatus Machine_CheckCardExpirationDate(void);
-	enuMachineStatus Machine_SaveTransaction(Transaction* ptrTransaction);
+	Machine() = default;
+	~Machine() = default;
+	Machine(const Machine& MachineObj) = delete;
+	static Machine*   GetMachineInstance(void);
+	enuMachineStatus Machine_Init(Card* CardDataPtr);
+	enuMachineStatus Machine_CheckDataValidation(uint64_t Card_IDCpy);
+	enuMachineStatus Machine_CheckCardExpirationDate(const struct tm& CardExpirationDateRef);
 	
 };
 
-#endi
+#endif

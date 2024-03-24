@@ -16,7 +16,6 @@ private:
 	uint8_t     TransactionType;    // add or withdraw
 	uint64_t    Transaction_Money;  // amount of money added or withdrawn
 	struct tm   Transaction_Date;   // date of transaction 
-	
 public:
 	Transaction() = default;
 	Transaction(uint8_t  TransactionTypeCpy, uint64_t Transaction_MoneyCpy ,const struct tm&  Transaction_DateRefCpy );

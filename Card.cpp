@@ -5,6 +5,7 @@
 /**************************************************************************************/
 
 #include <iostream>
+#include <string>
 #include <cstdint>
 #include <ctime>
 #include "Card.h"
@@ -65,8 +66,30 @@ const struct tm&  Card::Card_GetAcctivationDate(void) const
 	return Card_AcctivationDate;
 }
 
-
-
+Card::Card(const std::string& User_NameRef, uint64_t  Card_IDCpy, const struct tm&   Card_ExpirationDateRef, const struct tm&   Card_AcctivationDateRef)
+{
+	User_Name = User_NameRef;
+	Card_ID   = Card_IDCpy;
+	Card_ExpirationDate.tm_sec   = Card_ExpirationDateRef.tm_sec  ;
+	Card_ExpirationDate.tm_min   = Card_ExpirationDateRef.tm_min  ;
+	Card_ExpirationDate.tm_hour  = Card_ExpirationDateRef.tm_hour ;
+	Card_ExpirationDate.tm_mday  = Card_ExpirationDateRef.tm_mday ;
+	Card_ExpirationDate.tm_mon   = Card_ExpirationDateRef.tm_mon  ;
+	Card_ExpirationDate.tm_year  = Card_ExpirationDateRef.tm_year ;
+	Card_ExpirationDate.tm_wday  = Card_ExpirationDateRef.tm_wday ;
+	Card_ExpirationDate.tm_yday  = Card_ExpirationDateRef.tm_yday ;
+	Card_ExpirationDate.tm_isdst = Card_ExpirationDateRef.tm_isdst;
+	
+	Card_AcctivationDate.tm_sec   = Card_AcctivationDateRef.tm_sec  ; 
+	Card_AcctivationDate.tm_min   = Card_AcctivationDateRef.tm_min  ;
+	Card_AcctivationDate.tm_hour  = Card_AcctivationDateRef.tm_hour ;
+	Card_AcctivationDate.tm_mday  = Card_AcctivationDateRef.tm_mday ;
+	Card_AcctivationDate.tm_mon   = Card_AcctivationDateRef.tm_mon  ;
+	Card_AcctivationDate.tm_year  = Card_AcctivationDateRef.tm_year ;
+	Card_AcctivationDate.tm_wday  = Card_AcctivationDateRef.tm_wday ;
+	Card_AcctivationDate.tm_yday  = Card_AcctivationDateRef.tm_yday ;
+    Card_AcctivationDate.tm_isdst = Card_AcctivationDateRef.tm_isdst;
+}
 
 
 

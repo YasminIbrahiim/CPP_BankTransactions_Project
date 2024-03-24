@@ -94,4 +94,14 @@ void User::User_AddTransaction(Transaction* UserTransactionPtr)
 	{
 		VecUserTransactionsPtr.push_back(UserTransactionPtr); 
 	}
+	if(UserTransactionPtr->Transaction_GetTransactionType() == ADD)
+	{
+		Saved_Money += UserTransactionPtr->Transaction_GetTransaction_Money();
+	}else if(UserTransactionPtr->Transaction_GetTransactionType() == WITHDRAW)
+	{
+		Saved_Money -= UserTransactionPtr->Transaction_GetTransaction_Money();
+	}else
+	{
+		
+	}
 }

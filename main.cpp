@@ -14,7 +14,6 @@
 #include "User.h"
 #include "BankServer.h"
 
-
 using namespace std;
 
 int main()
@@ -51,6 +50,10 @@ int main()
 	
 	/* User 1 interfacing with the machine to */
 	MachineStatusLOC = MachineObj->Machine_Init(UserCard1);
-	std::cout<<MachineStatusLOC<<std::endl;
+	
+	delete UserCard1;
+	delete UserCard2;
+	delete UserCard3;
+	
 	return 0;
 }
